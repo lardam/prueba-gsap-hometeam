@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  .center-text {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Sección animada */
+.castle-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  .yellow-band {
+    width: 100%;
+    height: 30vh;
+    background-color: yellow;
+  }
+  .max-width {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    .content-skeleton {
+      display: flex;
+
+      flex-direction: column;
+      align-items: stretch;
+      position: relative;
+      .skeleton-el {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        p {
+          border-bottom: 1px solid #000;
+        }
+      }
+    }
+    .castle-cont {
+      width: 100%;
+      height: 150vh;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      .castle-img {
+        height: 100%;
+        width: auto;
+        position: absolute;
+        left: 55%;
+        transform: translateX(-50%);
+      }
+      .window-img {
+        position: absolute;
+        top: 53%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .data-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      .left-col-data {
+        width: 300px;
+        height: 25vh;
+        position: absolute;
+        top: 25vh;
+        left: 4rem;
+        transform: translateY(-50%);
+        overflow-y: hidden;
+        .left-items-list {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          transform: translateY(calc(25vh - 64px));
+          gap: 24px;
+          div {
+            height: 16px;
+            &.active-item {
+              height: 48px;
+              p {
+                font-size: 48px;
+                color: red;
+              }
+            }
+            p {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .left-col-content {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        position: absolute;
+        top: calc(37.5vh + 1.5rem);
+        left: 4rem;
+        button {
+          width: 140px;
+          height: 40px;
+          border: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #000;
+          span {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
