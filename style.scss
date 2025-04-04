@@ -20,9 +20,10 @@
 }
 
 /* Sección animada */
-.castle-wrapper {
+.portfolio-wrapper {
   width: 100%;
   position: relative;
+  overflow: hidden;
   z-index: 1;
   .yellow-band {
     width: 100%;
@@ -34,105 +35,93 @@
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
-    .content-skeleton {
+    .inner-portfolio {
+      width: 100%;
+      height: 100vh;
       display: flex;
-
-      flex-direction: column;
-      align-items: stretch;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      .skeleton-el {
-        width: 100%;
-        height: 100vh;
+      background-color: #f2f2f2;
+      .current-portfolio-item {
+        width: 33%;
+        min-width: 350px;
+        max-width: 600px;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
-        p {
-          border-bottom: 1px solid #000;
+        gap: 32px;
+        position: absolute;
+        top: 4rem;
+        left: 3rem;
+        .prev-portfolio-item {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          p {
+            transform: translateY(800%);
+          }
         }
-      }
-    }
-    .castle-cont {
-      width: 100%;
-      height: 150vh;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      .castle-img {
-        height: 100%;
-        width: auto;
-        position: absolute;
-        left: 55%;
-        transform: translateX(-50%);
-      }
-      .window-img {
-        position: absolute;
-        top: 53%;
-        left: 54%;
-        transform: translate(-50%, -50%);
-      }
-    }
-    .data-container {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      .left-col-data {
-        width: 300px;
-        height: 25vh;
-        position: absolute;
-        top: 25vh;
-        left: 4rem;
-        transform: translateY(-50%);
-        overflow-y: hidden;
-        .left-items-list {
+        .current-item {
+          height: 70px;
           position: relative;
+          .current-item-text-wrapper {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            transform: scale(0);
+            transform-origin: left bottom;
+            transition: all 0.5s ease;
+            &.active-current-item {
+              transform: scale(1);
+              transform-origin: left top;
+            }
+            p {
+              font-size: 70px;
+              line-height: 1;
+            }
+          }
+        }
+        .current-item-desc {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          transform: translateY(calc(25vh - 64px));
           gap: 24px;
-          div {
-            height: 16px;
-            &.active-item {
-              height: 48px;
-              p {
-                font-size: 48px;
-                color: red;
-              }
-            }
-            p {
-              font-size: 16px;
-            }
-          }
         }
       }
-      .left-col-content {
-        width: 300px;
+      .portfolio-image-container {
+        height: 120vh;
+        position: absolute;
+        left: 66%;
+        transform: translateX(-50%);
+        z-index: 0;
+        img {
+          height: 100%;
+        }
+        .window-container {
+          height: 20vh;
+          position: absolute;
+          top: 52vh;
+          left: 49%;
+          transform: translateX(-50%);
+        }
+      }
+      .next-portfolio-item {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
         position: absolute;
-        top: calc(37.5vh + 1.5rem);
-        left: 4rem;
-        button {
-          width: 140px;
-          height: 40px;
-          border: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #000;
-          span {
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #fff;
-          }
-        }
+        right: 3rem;
+        overflow: hidden;
+        z-index: 1;
       }
     }
   }
+}
+
+.white-space-below {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

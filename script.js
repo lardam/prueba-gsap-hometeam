@@ -1,21 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
-    
-    const wrapper = document.getElementById("castle-wrapper");
-    const dataContainer = document.getElementById('data-container')
-    const castleContainer = document.getElementById("castle-container");
 
-    gsap.fromTo(dataContainer, {
-        top: 0
-    }, {
-        top: '400vh',
+    const items = document.querySelectorAll('.p-portfolio-item')
+
+    gsap.fromTo('.portfolio-image-container', {y: 0}, {
+        y: '-10vh',
         scrollTrigger: {
-            trigger: wrapper,
+            trigger: '#portfolio-wrapper',
             start: 'top top',
-            end: 'bottom top',
+            end: () => `+=${window.innerHeight * 9}px`,
             pin: true,
             scrub: true,
-            markers: true
+        }
+    })
+    
+    gsap.fromTo('.p-portfolio-item', {y: () => `${(items.length * '100')}%`}, {
+        y: 0,
+        scrollTrigger: {
+            trigger: '#portfolio-wrapper',
+            start: 'top top',
+            end: () => `+=${window.innerHeight * (items.length + 1)}px`,
+            scrub: true,
+        }
+    })
+
+    gsap.fromTo('.n-portfolio-item', {y: 0}, {
+        y: () => `${-(items.length * '100')}%`,
+        scrollTrigger: {
+            trigger: '#portfolio-wrapper',
+            start: 'top top',
+            end: () => `+=${window.innerHeight * (items.length + 1)}px`,
+            scrub: true,
+            
+        }
+    })
+
+    const titles = gsap.utils.toArray('.current-item-text-wrapper')
+
+    gsap.fromTo(titles,{scale: 0}, {
+        scale: 1,
+        scrollTrigger: {
+            trigger: '#portfolio-wrapper',
+            start: 'top top',
+            end: () => `+=${window.innerHeight * (items.length + 1)}px`,
+            scrub: true,
+            
         }
     })
 });
